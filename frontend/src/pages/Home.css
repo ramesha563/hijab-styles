@@ -52,7 +52,7 @@ html, body {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.526);
 }
 
 /* Image Styling */
