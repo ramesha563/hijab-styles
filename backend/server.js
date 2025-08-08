@@ -42,7 +42,12 @@ dbConnect();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // agar specific frontend origin dena chaho to yahan lagao
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(express.json());
 
 // Routes
@@ -50,15 +55,15 @@ app.use("/api/reviews", reviewRoutes);
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.json({ message: "Backend is running 🚀" });
 });
 
-// Only run `listen` locally (NOT in Vercel)
+// Local run only
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5050;
   app.listen(PORT, () => {
-    console.log(`Server running locally on http://localhost:${PORT}`);
+    console.log(`✅ Server running locally at http://localhost:${PORT}`);
   });
 }
 
-module.exports = app; // Required for Vercel
+module.exports = app; // Vercel ke liye required
