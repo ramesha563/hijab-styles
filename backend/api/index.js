@@ -1,5 +1,5 @@
 
 
 //backend/aoi/index.js
-const app = require("../server"); // import express app
+const app = require("../server");
 module.exports = app;

@@ -31,6 +31,10 @@
 
 
 // module.exports = app;
+
+
+
+
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -44,7 +48,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*", // agar specific frontend origin dena chaho to yahan lagao
+    origin: "https://hijab-styles-front.vercel.app/", 
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
@@ -66,4 +70,4 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-module.exports = app; // Vercel ke liye required
+module.exports = app; // Required for Vercel
