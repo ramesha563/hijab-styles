@@ -1,28 +1,29 @@
-// backend/server.js
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const dbConnect = require('./utils/dbConnect');
-const reviewsHandler = require('./api/reviews');
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const connectDB = require("./utils/dbConnect");
+const reviewRoutes = require("./api/reviews");
 
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
-dbConnect().then(() => {
-  console.log('MongoDB connected');
-}).catch((err) => {
-  console.error('DB connection error:', err);
-  process.exit(1);
+// Test route for browser
+app.get("/", (req, res) => {
+  res.send(" Backend is working!");
 });
 
-app.all('/api/reviews', async (req, res) => {
-  await reviewsHandler(req, res);
-});
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => {
-  console.log(`Local backend running on port ${PORT}`);
+app.use("/api/reviews", reviewRoutes);
+
+// Connect DB and start server
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
