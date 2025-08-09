@@ -48,7 +48,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://hijab-styles-front.vercel.app/", 
+    origin: "https://hijab-styles-front.vercel.app", 
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
