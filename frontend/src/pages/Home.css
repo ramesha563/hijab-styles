@@ -80,7 +80,7 @@ html, body {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
-  flex-grow: 1; /* Push button down */
+  flex-grow: 1;
   line-height: 1.4;
 }
 
@@ -88,10 +88,9 @@ html, body {
 .avg-rating {
   font-weight: 600;
   margin: 0.4rem 0 1rem;
-  color: #f39c12; /* gold star color */
+  color: #f39c12; 
 }
 
-/* Review quote */
 .review-quote {
   font-style: italic;
   color: #777;
@@ -157,6 +156,37 @@ html, body {
   }
 
   .hijab-grid {
-    grid-template-columns: 1fr; /* single column on small screens */
+    grid-template-columns: 1fr; 
+  }
+}
+/* Video Wrapper */
+.video-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.664);
+}
+
+/* Video Styling */
+.header-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .video-wrapper {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-wrapper {
+    margin-bottom: 1rem;
   }
 }
